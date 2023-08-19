@@ -15,7 +15,7 @@ public class SpawnPlataform : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player").transform;
         for (int i=0; i<plataforms.Count; i++)
         {
-            Transform p =Instantiate(plataforms[i], new Vector2(i*27, 0), transform.rotation).transform;
+            Transform p =Instantiate(plataforms[i], new Vector2(i*27, -4), transform.rotation).transform;
             currentPlataforms.Add(p);
             offset += 27;
         }
@@ -43,7 +43,7 @@ public class SpawnPlataform : MonoBehaviour
     }
     public void Pooling(GameObject plataform)
     {
-        plataform.transform.position = new Vector2(offset,0f);
+        plataform.transform.position = new Vector2(offset,0 -4f);
         offset += 30f;
     }
 }
