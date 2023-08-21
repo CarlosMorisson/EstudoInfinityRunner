@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerMove : Player
 {
     private Rigidbody2D rig;
+    private bool jumping;
     void Start()
     {
         rig = GetComponent<Rigidbody2D>();
@@ -16,9 +17,19 @@ public class PlayerMove : Player
     }
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && !jumping)
         {
             rig.AddForce(new Vector2(0, JumpForce), ForceMode2D.Impulse);
+            anim.SetBool("isJumping", true);
+            jumping = true;
+        }
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.layer == 3)
+        {
+            anim.SetBool("isJumping", false);
+            jumping = false;
         }
     }
 }

@@ -9,5 +9,6 @@ public class Player : MonoBehaviour
     public float Damage;
     public float JumpForce;
     public float DashForce;
+    public Animator anim;
     
 }

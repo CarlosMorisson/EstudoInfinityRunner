@@ -4,15 +4,16 @@ using UnityEngine;
 
 public class Camera : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private Transform Player;
+    [SerializeField] private float speed;
+    [SerializeField] private float offset;
+    private void Start()
     {
-        
+        Player = GameObject.FindGameObjectWithTag("Player").transform;
     }
-
-    // Update is called once per frame
-    void Update()
+    private void LateUpdate()
     {
-        
+        Vector3 newCamPos = new Vector3(Player.position.x + offset, 0f, transform.position.z);
+        transform.position = Vector3.Slerp(transform.position, newCamPos, speed*Time.deltaTime);
     }
 }
