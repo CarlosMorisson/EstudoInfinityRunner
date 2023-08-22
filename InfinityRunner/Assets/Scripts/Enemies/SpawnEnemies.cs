@@ -7,6 +7,7 @@ public class SpawnEnemies : MonoBehaviour
     public List<GameObject> enemiesList = new List<GameObject>();
     float timer;
     [SerializeField] private float spawnTime;
+    private int EnemiesNumber;
     void Start()
     {
     }
@@ -23,6 +24,7 @@ public class SpawnEnemies : MonoBehaviour
     }
     void SpawnEnemy()
     {
-        Instantiate(enemiesList[0], transform.position+new Vector3(0,Random.Range(0,5),0), transform.rotation);
+        EnemiesNumber = Random.Range(0, enemiesList.Count);
+        Instantiate(enemiesList[EnemiesNumber], transform.position+new Vector3(0,Random.Range(0,5),0), transform.rotation);
     }
 }

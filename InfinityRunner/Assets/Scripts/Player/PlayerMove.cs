@@ -6,6 +6,7 @@ public class PlayerMove : Player
 {
     private Rigidbody2D rig;
     private bool jumping;
+    [SerializeField] private List<ParticleSystem> jumpParticles;
     void Start()
     {
         rig = GetComponent<Rigidbody2D>();
@@ -22,6 +23,10 @@ public class PlayerMove : Player
             rig.AddForce(new Vector2(0, JumpForce), ForceMode2D.Impulse);
             anim.SetBool("isJumping", true);
             jumping = true;
+            for(int i=0; jumpParticles.Count>i; i++)
+            {
+                jumpParticles[i].Play();
+            }
         }
     }
     private void OnCollisionEnter2D(Collision2D collision)
