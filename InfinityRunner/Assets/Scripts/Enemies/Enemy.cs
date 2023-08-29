@@ -8,5 +8,6 @@ public class Enemy : MonoBehaviour
     public float Damage;
     public float Speed;
     public float CoolDown;
-  
+
+    public ParticleSystem EnemyParticles;
 }

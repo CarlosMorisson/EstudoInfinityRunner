@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Camera : MonoBehaviour
+public class CameraFallow : MonoBehaviour
 {
     private Transform Player;
     [SerializeField] private float speed;
