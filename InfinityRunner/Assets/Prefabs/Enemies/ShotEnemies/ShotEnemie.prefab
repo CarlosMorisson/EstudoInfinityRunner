@@ -169,7 +169,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63ac7c2dc60b2304194f9c1ef9947bcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rig: {fileID: 0}
+  rig: {fileID: 7417144892732795581}
   Damage: 0
   Speed: 0
   CoolDown: 0

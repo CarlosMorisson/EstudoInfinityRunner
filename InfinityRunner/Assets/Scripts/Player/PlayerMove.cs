@@ -18,6 +18,7 @@ public class PlayerMove : Player
     }
     void Update()
     {
+        Shoot();
         if (Input.GetKeyDown(KeyCode.Space) && !jumping)
         {
             rig.AddForce(new Vector2(0, JumpForce), ForceMode2D.Impulse);
