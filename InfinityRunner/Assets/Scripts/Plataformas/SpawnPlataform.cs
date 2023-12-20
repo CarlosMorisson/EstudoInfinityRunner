@@ -15,7 +15,7 @@ public class SpawnPlataform : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player").transform;
         for (int i=0; i<plataforms.Count; i++)
         {
-            Transform p =Instantiate(plataforms[i], new Vector2(i*27, -4), transform.rotation).transform;
+            Transform p =Instantiate(plataforms[i], new Vector2(i*27, Random.Range(-4,2)), transform.rotation).transform;
             currentPlataforms.Add(p);
             offset += 27;
         }

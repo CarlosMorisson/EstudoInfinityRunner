@@ -921,6 +921,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 800
   offset: 5
+  isShaking: 0
+  shakeDuration: 0.5
+  shakeMagnitude: 2
 --- !u!1 &638294484
 GameObject:
   m_ObjectHideFlags: 0

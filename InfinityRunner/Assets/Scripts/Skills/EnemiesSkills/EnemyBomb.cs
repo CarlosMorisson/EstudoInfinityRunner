@@ -14,11 +14,14 @@ public class EnemyBomb : ShootProjectile
     }
     public void OnTriggerEnter2D(Collider2D collider)
     {
-        rig.velocity = Vector3.zero;
-        rig.gravityScale = 0;
-        particles[0].Play();
-        particles[1].Play();
-        sprite=GetComponent<SpriteRenderer>();
-        sprite.color=new Color(0,0,0,0);
+        GameObject particula1= particles[0].gameObject;
+        GameObject particula2= particles[1].gameObject;
+        GameObject particulaInstanciada1 = Instantiate(particula1, this.transform.position, this.transform.rotation);
+        GameObject particulaInstanciada2 = Instantiate(particula2, this.transform.position, this.transform.rotation);
+        particulaInstanciada1.GetComponent<ParticleSystem>().Play();
+        particulaInstanciada2.GetComponent<ParticleSystem>().Play();
+        Destroy(particulaInstanciada1, 1.5f);
+        Destroy(particulaInstanciada2, 1.5f);
+        Destroy(this.gameObject);
     }
 }

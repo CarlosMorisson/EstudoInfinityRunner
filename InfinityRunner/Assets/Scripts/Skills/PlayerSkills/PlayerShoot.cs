@@ -21,6 +21,7 @@ public class PlayerShoot : MonoBehaviour
         if (collision.gameObject.CompareTag("Dano") || collision.gameObject.layer==3)
         {
             GameObject explosion = Instantiate(Explosion, this.transform.position, this.transform.rotation);
+            CameraFallow.instance.isShaking = true;
             Destroy(explosion, 0.3f);
             Destroy(this.gameObject);
         }
