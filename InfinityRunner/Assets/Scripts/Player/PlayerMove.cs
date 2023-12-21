@@ -1,33 +1,33 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerMove : Player
 {
     private Rigidbody2D rig;
     private bool jumping;
-    [SerializeField] private List<ParticleSystem> jumpParticles;
+    public static PlayerMove instance;
+    [Header ("Efeitos de Pulo")]
+    public List<ParticleSystem> jumpParticles;
+    public Image JumpBar;
     void Start()
     {
+        instance = this;
         rig = GetComponent<Rigidbody2D>();
     }
-
     private void FixedUpdate()
     {
         rig.velocity = new Vector2(MoveSpeed,rig.velocity.y);
     }
-    void Update()
+    public void Jump()
     {
-        Shoot();
-        if (Input.GetKeyDown(KeyCode.Space) && !jumping)
+        rig.AddForce(new Vector2(0, JumpForce));
+        anim.SetBool("isJumping", true);
+        jumping = true;
+        for (int i = 0; jumpParticles.Count > i; i++)
         {
-            rig.AddForce(new Vector2(0, JumpForce), ForceMode2D.Impulse);
-            anim.SetBool("isJumping", true);
-            jumping = true;
-            for(int i=0; jumpParticles.Count>i; i++)
-            {
-                jumpParticles[i].Play();
-            }
+            jumpParticles[i].Play();
         }
     }
     private void OnCollisionEnter2D(Collision2D collision)
